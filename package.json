@@ -13,6 +13,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "compression": "^1.8.1",
+    "ejs": "^4.0.1",
     "express": "^5.2.1",
     "sirv": "^3.0.2",
     "tailwindcss": "^4.1.18"
