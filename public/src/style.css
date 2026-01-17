@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: whitesmoke;
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -29,7 +29,7 @@ body {
 .navbar-brand {
     font-size: 1.8rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0d101a 0%, #0a0211 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -51,7 +51,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0d101a 0%, #0a0211 100%);
     transition: width 0.3s ease;
 }
 
@@ -60,7 +60,7 @@ body {
 }
 
 .nav-link:hover {
-    color: #667eea !important;
+    color: #222 !important;
 }
 
 .btn-auth {
@@ -72,7 +72,7 @@ body {
 }
 
 .btn-login {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0d101a 0%, #0a0211 100%);
     color: white;
     border: none;
 }
@@ -84,27 +84,27 @@ body {
 }
 
 .btn-register {
-    border: 2px solid #667eea;
-    color: #667eea;
+    border: 2px solid #222;
+    color: #222;
     background: transparent;
 }
 
 .btn-register:hover {
-    background: #667eea;
+    background: linear-gradient(135deg, #0d101a 0%, #0a0211 100%);
     color: white;
     transform: translateY(-2px);
 }
 
 /* Main Content Area */
 .main-content {
-    margin-top: 150px;
+    margin-top: 130px;
     padding: 40px 20px;
     min-height: 100vh;
 }
 
 .hero-section {
     text-align: center;
-    color: white;
+    color: #222;
     margin-bottom: 60px;
 }
 
@@ -150,7 +150,7 @@ body {
 }
 
 .form-tabs button.active {
-    color: #667eea;
+    color: #222;
 }
 
 .form-tabs button.active::after {
@@ -160,7 +160,7 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0d101a 0%, #0a0211 100%);
 }
 
 .form-section {
@@ -206,7 +206,7 @@ body {
 
 .form-group input:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #222;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -222,14 +222,14 @@ body {
 
 .form-group textarea:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #222;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .btn-submit {
     width: 100%;
     padding: 13px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0d101a 0%, #0a0211 100%);
     color: white;
     border: none;
     border-radius: 10px;

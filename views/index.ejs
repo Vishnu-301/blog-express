@@ -1,18 +1,53 @@
-<%- include('partials/header.ejs')  %>
+<%- include('partials/header.ejs') %>
+    <%- include('partials/nav.ejs') %>
 
-<%- include('partials/nav.ejs') %>
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="hero-section">
+                <h1>Welcome to Flourish</h1>
+                <p>Share your thoughts, read amazing stories, and connect with writers worldwide.</p>
+            </div>
 
+            <!-- Features Section -->
+            <div style="max-width: 900px; margin: 60px auto; padding: 0 20px;">
+                <div
+                    style="background: rgba(255, 255, 255, 0.95); border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); margin-bottom: 40px;">
+                    <h2 style="font-size: 2rem; font-weight: 700; color: #333; margin-bottom: 20px;">What is Flourish?
+                    </h2>
+                    <p style="color: #666; font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                        Flourish is a vibrant blogging platform designed for developers, designers, and creators who
+                        want to share their knowledge and experiences with the world. Whether you're documenting your
+                        coding journey, sharing design insights, or writing tutorials, Flourish provides a beautiful and
+                        intuitive space to express yourself.
+                    </p>
+                    <p style="color: #666; font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                        Our community is built on the belief that knowledge should be shared freely. Connect with
+                        like-minded creators, discover inspiring content, and grow your skills alongside a supportive
+                        community of passionate individuals.
+                    </p>
+                    <p style="color: #666; font-size: 1.1rem; line-height: 1.8;">
+                        Join thousands of writers and readers in our ever-growing platform. Create an account today and
+                        start your blogging journey with Flourish!
+                    </p>
+                </div>
 
-<!-- Main Content -->
-<div class="main-content">
-    <div class="hero-section">
-        <h1>Welcome to Flourish</h1>
-        <p>Share your thoughts, read amazing stories, and connect with writers worldwide.</p>
-    </div>
+                <!-- CTA Buttons -->
+                <div
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 600px; margin: 0 auto;">
+                    <a href="/posts"
+                        style="background: linear-gradient(135deg, #222 0%, #210 100%); color: white; padding: 18px 30px; border-radius: 10px; text-decoration: none; text-align: center; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3); display: block;">
+                        📖 Explore Posts
+                    </a>
+                    <a href="/create"
+                        style="background: linear-gradient(135deg, #222 0%, #210 100%); color: white; padding: 18px 30px; border-radius: 10px; text-decoration: none; text-align: center; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3); display: block;">
+                        ✍️ Create Post
+                    </a>
+                </div>
+            </div>
 
-    <!-- Auth Modal -->
-    <%- include('partials/auth.ejs') %>
-  
-</div>
+            <!-- Auth Modal -->
+            <%- include('partials/auth.ejs') %>
 
-<%- include('partials/footer.ejs') %>
+        </div>
+
+        <%- include('partials/footer.ejs') %>
