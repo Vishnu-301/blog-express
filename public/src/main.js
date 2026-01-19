@@ -20,14 +20,14 @@ function switchTab(tab) {
 }
 
 // Form submission handlers
-document.getElementById('loginForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert('Login form submitted!');
-    // Add your login logic here
-});
+// document.getElementById('loginForm').addEventListener('submit', function (e) {
+//     e.preventDefault();
+//     alert('Login form submitted!');
+//     // Add your login logic here
+// });
 
-document.getElementById('registerForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert('Register form submitted!');
-    // Add your registration logic here
-});
+// document.getElementById('registerForm').addEventListener('submit', function (e) {
+//     e.preventDefault();
+//     alert('Register form submitted!');
+//     // Add your registration logic here
+// });

@@ -22,7 +22,6 @@
                                         <span class="post-author">
                                             <%= post.author %>
                                         </span>
-                                        <span class="post-date">Jan 15, 2025</span>
                                     </div>
                                     <h2 class="post-title">
                                         <%= post.title %>
@@ -31,13 +30,6 @@
                                         <%= post.content %>
                                     </p>
                                     <div class="post-footer">
-                                        <!-- <div class="post-tags">
-                                            <%# post.tags.forEach(tag=> { %>
-                                                <span class="tag">
-                                                    <%# tag %>
-                                                </span>
-                                                <%# }) %>
-                                        </div> -->
                                     </div>
                                     <div class="post-actions" style="margin-top: 15px;">
                                         <a href="/posts/1" class="btn-read">Read More</a>
@@ -47,6 +39,9 @@
                             <% }) %>
                                 <% } %>
                 </div>
+
+                <%- include('partials/auth.ejs') %>
+
             </div>
 
             <%- include('./partials/footer.ejs') %>
