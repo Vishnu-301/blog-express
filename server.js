@@ -10,8 +10,10 @@ app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 
+// using body-parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// creating register function
 function register(req, res, next) {
     const { name, email, password, confirm_password } = req.body;
 
@@ -33,26 +35,35 @@ function register(req, res, next) {
     next();
 }
 
+// creating login function
 function login(req, res, next) {
-    const {email, password} = req.body;
+    const { email, password } = req.body;
 
     req.login = {
         email: email,
         password: password
     }
 
-    if (req.regData.email === req.login.email && req.regData.password === req.login.password ) {
+    if (req.login) {
         console.log('login successful');
         res.redirect('/')
-    }else {
+    } else {
         console.log('invalid email or password');
     }
+
+    // if (req.regData.email === req.login.email && req.regData.password === req.login.password ) {
+    //     console.log('login successful');
+    //     res.redirect('/')
+    // }else {
+    //     console.log('invalid email or password');
+    // }
 }
 
 app.get("/", (req, res) => {
     res.render("index");
 });
 
+// render posts page using stored array data
 app.get("/posts", (req, res) => {
     const allposts = posts;
     res.render("posts", { allposts });
@@ -62,8 +73,10 @@ app.get("/create", (req, res) => {
     res.render("create");
 });
 
+// get form data when submitted and store in array
 app.post("/posts/create", (req, res) => {
 
+    // get form data
     const newPost = {
         image: req.body['image'],
         author: req.body['author'],
@@ -71,6 +84,7 @@ app.post("/posts/create", (req, res) => {
         content: req.body['content'],
     }
 
+    // check if all fields are filled
     if (newPost.image && newPost.author && newPost.title && newPost.content) {
         posts.push(newPost);
         console.log('post created successfully');
@@ -81,11 +95,12 @@ app.post("/posts/create", (req, res) => {
     }
 });
 
+// handle register and login routes
 app.post('/register', register, (req, res) => {
     console.log(req.regData)
 });
 
-app.post('/login',register, login, (req, res) => {
+app.post('/login', login, (req, res) => {
     console.log(req.login)
 });
 
@@ -93,6 +108,7 @@ app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`)
 });
 
+// stored posts data
 const posts = [{
     image: '📱',
     author: 'Sarrah Johnson',
