@@ -1,0 +1,17 @@
+# Exported from Render on 2026-01-24T19:36:58Z
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: flourish-blog
+      runtime: node
+      repo: https://github.com/Vishnu-301/blog-express
+      plan: free
+      region: oregon
+      buildCommand: 'npm install; '
+      startCommand: npm run start
+      autoDeployTrigger: commit
+      rootDir: ./
