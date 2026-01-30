@@ -1,11 +1,14 @@
 import express from "express"
 import ejs from "ejs"
 import bodyParser from "body-parser"
+import axios from "axios"
 import path from "path"
 
 const app = express();
 const port = process.env.PORT || 3000;
 const __dirname = path.resolve();
+
+const API_URL = "http://localhost:4000";
 
 app.set("view engine", "ejs");
 
@@ -64,9 +67,15 @@ app.get("/", (req, res) => {
 });
 
 // render posts page using stored array data
-app.get("/posts", (req, res) => {
-    const allposts = posts;
-    res.render("posts", { allposts });
+app.get("/all/posts", async (req, res) => {
+    try {
+        const response = await axios.get(`${API_URL}/posts`);
+        const allposts = response.data;
+        res.render("posts", { allposts });
+    } catch (error) {
+        res.json({ message: "posts not found" })
+            .status(500)
+    }
 });
 
 app.get("/create", (req, res) => {
@@ -74,24 +83,13 @@ app.get("/create", (req, res) => {
 });
 
 // get form data when submitted and store in array
-app.post("/posts/create", (req, res) => {
+app.post("/posts/create", async (req, res) => {
+    try {
+        const response = await axios.post(`${API_URL}/posts`, req.body);
+        res.status(200)
+            .redirect("/");
+    } catch (error) {
 
-    // get form data
-    const newPost = {
-        image: req.body['image'],
-        author: req.body['author'],
-        title: req.body['title'],
-        content: req.body['content'],
-    }
-
-    // check if all fields are filled
-    if (newPost.image && newPost.author && newPost.title && newPost.content) {
-        posts.push(newPost);
-        console.log('post created successfully');
-        console.log(req.body);
-        res.redirect("/posts");
-    } else {
-        res.send("All fields are required!");
     }
 });
 
@@ -109,35 +107,35 @@ app.listen(port, () => {
 });
 
 // stored posts data
-const posts = [{
-    image: '📱',
-    author: 'Sarrah Johnson',
-    title: 'Getting Started with Web Development',
-    content: 'Learn the fundamentals of web development and start your journey as adeveloper.Well cover HTML, CSS, and JavaScript basics to get you started.'
-}, {
-    image: '🚀',
-    author: 'Mike Chen',
-    title: 'Advanced javascript Technologies',
-    content: 'Explore advanced JavaScript concepts including closures, prototypes, andasync/ await.Perfect for developers looking to level up their skills.'
-}, {
-    image: '🎨',
-    author: 'Emma Davis',
-    title: 'UI design principles for modern Apps',
-    content: 'Master the art of creating beautiful and functional user interfaces.Learn about spacing, typography, colors, and user experience best practices.'
-}, {
-    image: '💻',
-    author: 'James Wilson',
-    title: 'Building Scalable Backend Systems',
-    content: 'Discover the architecture and patterns needed to build backend systems that can scale. Learn about databases, APIs, and best practices for production code.'
-}, {
-    image: '🔒',
-    author: 'Lisa Anderson',
-    title: 'Web Security Essentials',
-    content: 'Protect your applications from common vulnerabilities. Learn about HTTPS, authentication, SQL injection, XSS, and other security best practices.'
-}, {
-    image: '⚡',
-    author: 'Alex Turner',
-    title: 'Performance Optimization Tips',
-    content: 'Make your web applications lightning fast. Learn about code splitting, lazy loading, caching strategies, and tools to measure and improve performance.'
-},
-];
+// const posts = [{
+//     image: '📱',
+//     author: 'Sarrah Johnson',
+//     title: 'Getting Started with Web Development',
+//     content: 'Learn the fundamentals of web development and start your journey as adeveloper.Well cover HTML, CSS, and JavaScript basics to get you started.'
+// }, {
+//     image: '🚀',
+//     author: 'Mike Chen',
+//     title: 'Advanced javascript Technologies',
+//     content: 'Explore advanced JavaScript concepts including closures, prototypes, andasync/ await.Perfect for developers looking to level up their skills.'
+// }, {
+//     image: '🎨',
+//     author: 'Emma Davis',
+//     title: 'UI design principles for modern Apps',
+//     content: 'Master the art of creating beautiful and functional user interfaces.Learn about spacing, typography, colors, and user experience best practices.'
+// }, {
+//     image: '💻',
+//     author: 'James Wilson',
+//     title: 'Building Scalable Backend Systems',
+//     content: 'Discover the architecture and patterns needed to build backend systems that can scale. Learn about databases, APIs, and best practices for production code.'
+// }, {
+//     image: '🔒',
+//     author: 'Lisa Anderson',
+//     title: 'Web Security Essentials',
+//     content: 'Protect your applications from common vulnerabilities. Learn about HTTPS, authentication, SQL injection, XSS, and other security best practices.'
+// }, {
+//     image: '⚡',
+//     author: 'Alex Turner',
+//     title: 'Performance Optimization Tips',
+//     content: 'Make your web applications lightning fast. Learn about code splitting, lazy loading, caching strategies, and tools to measure and improve performance.'
+// },
+// ];
